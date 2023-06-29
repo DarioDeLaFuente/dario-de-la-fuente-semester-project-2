@@ -7,8 +7,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { TbGavel } from "react-icons/tb";
 import { FaUserCircle } from "react-icons/fa";
 import { FcHome } from "react-icons/fc";
-import { clearStorage, saveUser } from "../utils/storage";
-import { getFromStorage } from "../utils/storage";
+import { clearStorage, saveUser } from "./utils/storage";
+import { getFromStorage } from "./utils/storage";
 import Card from "react-bootstrap/Card";
 import styles from "../../styles/LogoBaner.module.css";
 

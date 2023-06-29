@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { saveUser } from "../pages/utils/storage";
+import { saveUser } from "./components/utils/storage";
 import displayMessage from "../pages/components/_displayMessage";
 import { MdGavel } from "react-icons/md";
 import OffcanvasNav from "./components/_nav";
