@@ -1,0 +1,10 @@
+.card {
+    width: 100%;
+    padding:25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.123);
+   }
+   .card:hover {
+    background-color: #a2c3e980;
+    transition-duration: .5s;
+  }
