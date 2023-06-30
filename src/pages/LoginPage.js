@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { saveToken, saveUser } from "./components/utils/storage";
+import { saveToken, saveUser } from "../utils/storage";
 import { baseUrl } from "./api/url";
 import OffcanvasNav from "./components/_nav";
 import Container from "react-bootstrap/Container";

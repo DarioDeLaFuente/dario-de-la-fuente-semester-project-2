@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
-import { getToken } from "./utils/storage";
+import { getToken } from "../../utils/storage";
 import style from "../../styles/formCard.module.css";
 
 function GenerateEntry({ onEntryCreated }) {

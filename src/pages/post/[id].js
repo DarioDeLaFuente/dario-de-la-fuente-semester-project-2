@@ -8,7 +8,7 @@ import {
   getToken,
   userKey,
   saveUser,
-} from "../components/utils/storage";
+} from "../../utils/storage";
 import OffcanvasNav from "../components/_nav";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";

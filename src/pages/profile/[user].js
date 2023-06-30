@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { getFromStorage } from "../components/utils/storage";
+import { getFromStorage } from "../../utils/storage";
 import { FaUserCircle } from "react-icons/fa";
 import OffcanvasNav from "../components/_nav";
 import Card from "react-bootstrap/Card";
