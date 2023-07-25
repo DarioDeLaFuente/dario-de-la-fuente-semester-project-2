@@ -36,7 +36,7 @@ function GenerateEntry({ onEntryCreated }) {
       title: title,
       description: description,
       media: media,
-      tags: tags ? [tags] : [],
+      tags: tags ? tags : [],
       endsAt: ends,
     };
 
@@ -95,7 +95,7 @@ function GenerateEntry({ onEntryCreated }) {
       setDescriptionError(null);
     }
 
-    if (tags.trim() === "") {
+    if (!tags.length) {
       setTagsError("Tags is required.");
       isValid = false;
     } else {
@@ -155,7 +155,7 @@ function GenerateEntry({ onEntryCreated }) {
             type="text"
             placeholder="Normal text"
             value={tags}
-            onChange={(e) => setTags(e.target.value)}
+            onChange={(e) => setTags(e.target.value.split(","))}
           />
           {tagsError && <p className="error-message">{tagsError}</p>}
         </Form.Group>

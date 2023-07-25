@@ -1,5 +1,18 @@
 .cardImgSize{
-    width: 100%;
-    height: 100%;
     box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+    min-height: 100%;
+    margin: auto;
 }
+.imgConteiner{
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+ 

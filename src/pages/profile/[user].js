@@ -12,6 +12,7 @@ import FluidExample from "../components/_image";
 import UpdateAvatar from "../components/_updateAvatar";
 import Footer from "../components/_footer";
 import styles from "../../styles/profileCard.module.css";
+import Button from "react-bootstrap/Button";
 
 function ProfilePage() {
   const router = useRouter();
@@ -110,12 +111,17 @@ function ProfilePage() {
             <EntryList user={user} entryList={entryList} />
           </div>
           <div className="col-md-6 order-md-5 ">
-            <div className={styles.card}>
+            <div>
               <h4 className="d-flex justify-content-between align-items-center ">
-                Your entry list:
+                Your entry vins:
               </h4>
-              <p>Email: {profile.email}</p>
-              <p>Credits: {profile.credits}</p>
+              {Array.isArray(profile.wins) &&
+                profile.wins.map((win) => (
+                  <div key={win}>
+                    <p>Vins id: {win}</p>
+                    <Button href={`/post/${win}`}> view your vins</Button>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

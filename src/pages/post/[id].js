@@ -144,12 +144,14 @@ const Post = () => {
           <Card.Body>
             <Row className="justify-content-md-center">
               <Col xs={12} md={8}>
-                <Card.Img
-                  className={img.cardImgSize}
-                  variant="top"
-                  src={`${post.media ? post.media : placeholderImage}`}
-                  onError={handleImageError}
-                />
+                <div className={img.imgConteiner}>
+                  <Card.Img
+                    className={img.cardImgSize}
+                    variant="top"
+                    src={`${post.media ? post.media : placeholderImage}`}
+                    onError={handleImageError}
+                  />
+                </div>
               </Col>
               <Col xs={12} md={4}>
                 <h2>{post.title}</h2>
