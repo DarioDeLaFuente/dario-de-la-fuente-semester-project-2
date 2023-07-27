@@ -7,7 +7,7 @@ import { getUsername, getToken } from "../../utils/storage";
 import styles from "../../styles/profileCard.module.css";
 import error from "../../styles/errorMessage.module.css";
 //
-import messageSuccess from "../../styles/successMessage.module.css";
+import success from "../../styles/success.module.css";
 
 const UpdateAvatar = ({ onAvatarUpdated }) => {
   const [link, setLink] = useState("");
@@ -79,7 +79,7 @@ const UpdateAvatar = ({ onAvatarUpdated }) => {
           </Button>{" "}
         </InputGroup>
         {linkError && <div className={error.errorMessage}>{linkError}</div>}
-        {successMessage && <div className={messageSuccess.success}>{successMessage}</div>}
+        {successMessage && <div className={success.success}>{successMessage}</div>}
       </Form>
     </>
   );
