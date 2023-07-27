@@ -5,6 +5,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import { getUsername, getToken } from "../../utils/storage";
 import styles from "../../styles/profileCard.module.css";
+import error from "../../styles/errorMessage.module.css";
+import messageSuccess from "../../styles/successMessage.module.css";
 
 const UpdateAvatar = ({ onAvatarUpdated }) => {
   const [link, setLink] = useState("");
@@ -75,8 +77,8 @@ const UpdateAvatar = ({ onAvatarUpdated }) => {
             Update
           </Button>{" "}
         </InputGroup>
-        {linkError && <div className={styles.error}>{linkError}</div>}
-        {successMessage && <div className={styles.success}>{successMessage}</div>}
+        {linkError && <div className={error.errorMessage}>{linkError}</div>}
+        {successMessage && <div className={messageSuccess.success}>{successMessage}</div>}
       </Form>
     </>
   );

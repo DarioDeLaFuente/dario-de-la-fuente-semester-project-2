@@ -78,11 +78,11 @@ function ProfilePage() {
         <div className="row">
           <div className="col-md-4 order-md-1">
             <div className={styles.card}>
-              <div className={styles.profileImage}>
+              <div>
                 {avatarData ? (
                   <img className={styles.profileImage} src={avatarData} alt="Avatar" />
                 ) : (
-                  <FaUserCircle />
+                  <FaUserCircle className={styles.profileImage} />
                 )}
               </div>
               <div className={styles.textContainer}>

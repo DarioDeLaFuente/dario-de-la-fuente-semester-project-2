@@ -5,13 +5,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    object-fit: contain;
+    object-fit: cover;
     min-height: 100%;
     margin: auto;
 }
 .imgConteiner{
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
     position: relative;
     overflow: hidden;
   }

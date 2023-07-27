@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { getToken } from "../../utils/storage";
 import style from "../../styles/formCard.module.css";
+import error from "../../styles/errorMessage.module.css";
 
 function GenerateEntry({ onEntryCreated }) {
   const [title, setTitle] = useState("");
@@ -137,7 +138,7 @@ function GenerateEntry({ onEntryCreated }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          {titleError && <p className="error-message">{titleError}</p>}
+          {titleError && <p className={error.errorMessage}>{titleError}</p>}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Description</Form.Label>
@@ -147,7 +148,7 @@ function GenerateEntry({ onEntryCreated }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          {descriptionError && <p className="error-message">{descriptionError}</p>}
+          {descriptionError && <p className={error.errorMessage}>{descriptionError}</p>}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Tags</Form.Label>
@@ -157,7 +158,7 @@ function GenerateEntry({ onEntryCreated }) {
             value={tags}
             onChange={(e) => setTags(e.target.value.split(","))}
           />
-          {tagsError && <p className="error-message">{tagsError}</p>}
+          {tagsError && <p className={error.errorMessage}>{tagsError}</p>}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Media</Form.Label>
@@ -167,7 +168,7 @@ function GenerateEntry({ onEntryCreated }) {
             value={media.join(",")}
             onChange={handleMediaChange}
           />
-          {mediaError && <p className="error-message">{mediaError}</p>}
+          {mediaError && <p className={error.errorMessage}>{mediaError}</p>}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Ends At</Form.Label>
@@ -177,10 +178,10 @@ function GenerateEntry({ onEntryCreated }) {
             value={ends}
             onChange={(e) => setEnds(e.target.value)}
           />
-          {endsError && <p className="error-message">{endsError}</p>}
+          {endsError && <p className={error.errorMessage}>{endsError}</p>}
         </Form.Group>
         <Button as="input" type="submit" value="Submit" />
-        {formError && <p className="error-message">{formError}</p>}
+        {formError && <p className={error.errorMessage}>{formError}</p>}
       </Form>
     </>
   );
