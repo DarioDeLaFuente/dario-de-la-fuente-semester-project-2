@@ -8,7 +8,6 @@ import Card from "react-bootstrap/Card";
 import GrowLoading from "../components/_border-grow";
 import CreateEntry from "../components/_create-entry";
 import EntryList from "../components/_entry-list";
-import FluidExample from "../components/_image";
 import UpdateAvatar from "../components/_updateAvatar";
 import Footer from "../components/_footer";
 import styles from "../../styles/profileCard.module.css";
@@ -60,7 +59,12 @@ function ProfilePage() {
     console.log("data", newAvatarData);
   };
   if (!profile || !user) {
-    return <GrowLoading></GrowLoading>;
+    return;
+    <Row>
+      <Col>
+        <CardPlaceholder />
+      </Col>
+    </Row>;
   }
 
   return (
@@ -70,9 +74,12 @@ function ProfilePage() {
         <div className="py-5 text-center">
           <h2>The Market of Opportunities.</h2>
           <p className="lead">
-            Below is an example form built entirely with Bootstrap's form controls. Each required
-            form group has a validation state that can be triggered by attempting to submit the form
-            without completing it.
+            Welcome to Unsigned Market, your ultimate destination for online auctions! We are
+            thrilled to introduce you to a dynamic platform where buyers and sellers unite to engage
+            in exhilarating bidding wars and discover unique treasures. At Unsigned Market, we
+            understand the thrill of finding that one-of-a-kind item you've been searching for or
+            the joy of unearthing a hidden gem. Our user-friendly website allows you to showcase
+            your prized possessions and explore a vast array of listings from fellow enthusiasts.
           </p>
         </div>
         <div className="row">

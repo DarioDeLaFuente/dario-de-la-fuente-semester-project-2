@@ -1,0 +1,21 @@
+.description{
+    color: #005eec;
+    font-size: 14px;
+    line-height: 16px;
+}
+.txtDescription{
+    color: #000; 
+    font-size: 16px;
+}
+.desBox {
+    padding: 10px;
+    background-color:#005eec59 ;
+    border-radius: 5px;
+}
+.txtBoxDescription {
+    font-size: 16px; 
+    color: #fff;
+}
+.titleDescription{
+    margin-top: 5px;
+}

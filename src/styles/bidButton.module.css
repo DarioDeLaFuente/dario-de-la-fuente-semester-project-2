@@ -1,0 +1,23 @@
+/*.bidButton{
+    background-color: #EAEAEC;
+}
+*/
+.bidButton:hover{
+    background-color: #454241;
+    border: solid #454241;
+    color:#fff;
+}
+.bidButton {
+    background-color: #EAEAEC;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #454241;
+    cursor: pointer;
+  }
+  
+  .bidButton:active {
+    transform: translate(3px, 3px,3px);
+    background-color: #454241;
+  }
+  

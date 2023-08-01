@@ -19,8 +19,12 @@ import BidsList from "../components/_bids-list";
 import Footer from "../components/_footer";
 import styles from "../../styles/InputBid.module.css";
 import img from "../../styles/PostCardImg.module.css";
+import des from "../../styles/cardDescription.module.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import error from "../../styles/error.module.css";
+import success from "../../styles/success.module.css";
+import bidButton from "../../styles/bidButton.module.css";
 
 const placeholderImage =
   "https://placehold.jp/25/ffff/005eec/250x250.png?text=Placeholder%20IMG%0A%20The%20Market%20of%20Opportunities.";
@@ -33,6 +37,14 @@ const Post = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
   console.log(" 1router", router);
+
+  const formatDate = (dateString) => {
+    const timestamp = Date.parse(dateString);
+    if (isNaN(timestamp)) return "Invalid Date";
+
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  };
 
   const fetchProfile = async () => {
     const storedUser = getFromStorage("user");
@@ -154,23 +166,35 @@ const Post = () => {
                 </div>
               </Col>
               <Col xs={12} md={4}>
-                <h2>{post.title}</h2>
-                <p>description:{post.description}</p>
-                <p>id:{post.id}</p>
-                <p>bids:{post._count && post._count.bids}</p>
-                <p>updated:{post.updated}</p>
-                <p>created:{post.created}</p>
-                <p>endsAt:{post.endsAt}</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={4}>
+                <h2 className={des.titleDescription}>{post.title}</h2>
+                <span className={des.description}>
+                  Description:
+                  <p className={des.txtDescription}>{post.description}</p>
+                </span>
+                <span className={des.description}>
+                  Id:
+                  <p className={des.txtDescription}>{post.id}</p>
+                </span>
+                <span className={des.description}>
+                  Bid amount:
+                  <p className={des.txtDescription}>{post._count && post._count.bids}</p>
+                </span>
+                <span className={des.description}>
+                  Last updated:
+                  <p className={des.txtDescription}>{formatDate(post.updated)}</p>
+                </span>
+                <div className={des.desBox}>
+                  Listing info:
+                  <p className={des.txtBoxDescription}>created: {formatDate(post.created)}</p>
+                  <p className={des.txtBoxDescription}>ends At: {formatDate(post.endsAt)}</p>
+                </div>
                 {post && (
                   <>
                     {loggedIn ? (
                       <>
                         <Form className="mt-3" onSubmit={handleBid}>
-                          {errorMessage && <div className="error-message">{errorMessage}</div>}
+                          {errorMessage && <div className={error.errorMessage}>{errorMessage}</div>}
+                          {bidError && <div className={success.success}>{bidError}</div>}
                           <InputGroup className={styles.inputgroup}>
                             <Form.Control
                               type="number"
@@ -179,22 +203,29 @@ const Post = () => {
                               className={styles.input}
                               placeholder="Bid Amount"
                             />
-                            <Button className="button" variant="" type="submit">
+                            <Button className={bidButton.bidButton} variant="" type="submit">
                               Bid
                             </Button>
-                            {bidError && <div className="error-message">{bidError}</div>}
                           </InputGroup>
                         </Form>
                       </>
                     ) : (
-                      <Button href="/LoginPage" variant="outline-primary" key="login">
+                      <Button
+                        href="/LoginPage"
+                        className="mt-3"
+                        variant="outline-primary"
+                        key="login"
+                      >
                         Login
                       </Button>
                     )}
                   </>
                 )}
               </Col>
-              <Col className="mt-3">
+            </Row>
+            <Row>
+              <Col xs={12} md={4}></Col>
+              <Col xs={12} md={12} className="mt-3">
                 {" "}
                 <BidsList bids={post.bids}></BidsList>
               </Col>

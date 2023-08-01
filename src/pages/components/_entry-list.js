@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/scrollBarThumb.module.css";
 import Carousel from "react-bootstrap/Carousel";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import GrowLoading from "../components/_border-grow";
 
 function entryListHandler({ user, entryList }) {
   const [entryListHandler, setentryListHandler] = useState([]);
@@ -43,7 +46,13 @@ function entryListHandler({ user, entryList }) {
   };
 
   if (entryListHandler.length === 0) {
-    return <p>Loading...</p>;
+    return (
+      <Row>
+        <Col>
+          <GrowLoading />
+        </Col>
+      </Row>
+    );
   }
 
   return (

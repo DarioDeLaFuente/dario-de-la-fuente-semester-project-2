@@ -1,0 +1,29 @@
+.conteinerBox {
+    display: block;
+    background-color: #005eec24;
+    justify-items: start;
+    justify-content:space-between;
+    margin: 1px;
+    border: solid 1px #005eec59;
+  }
+
+
+  
+  @media (min-width: 465px) {
+    .conteinerBox {
+        display: flex;
+      }
+  }
+  
+
+  @media (min-width:768px) {
+    .conteinerBox {
+        display: flex;
+      }
+  }
+
+  @media (min-width:992px) {
+    .conteinerBox {
+        display: flex;
+      }
+    }

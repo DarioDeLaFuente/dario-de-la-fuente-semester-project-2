@@ -5,6 +5,8 @@ import { baseUrl } from "./api/url";
 import OffcanvasNav from "./components/_nav";
 import Container from "react-bootstrap/Container";
 import Footer from "./components/_footer";
+import { TbGavel } from "react-icons/tb";
+import styles from "../styles/LogoBaner.module.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -71,6 +73,10 @@ export default function LoginPage() {
       <Container>
         <form className="form-signin w-50 m-auto my-5 pt-5" onSubmit={handleSubmit}>
           <div className="row mt-3">
+            <div className="d-flex justify-content-center ">
+              <TbGavel className={styles.logoBrand} />
+            </div>
+            <h1 className="d-flex justify-content-center h3 mb-3 fw-normal ">Login</h1>
             <label>
               Email:
               <input

@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import { getUsername, getToken } from "../../utils/storage";
 import styles from "../../styles/profileCard.module.css";
 import error from "../../styles/errorMessage.module.css";
-//
 import success from "../../styles/success.module.css";
 
 const UpdateAvatar = ({ onAvatarUpdated }) => {

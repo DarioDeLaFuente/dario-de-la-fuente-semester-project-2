@@ -6,6 +6,8 @@ import displayMessage from "../pages/components/_displayMessage";
 import { MdGavel } from "react-icons/md";
 import OffcanvasNav from "./components/_nav";
 import Footer from "./components/_footer";
+import { TbGavel } from "react-icons/tb";
+import styles from "../styles/LogoBaner.module.css";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -94,8 +96,10 @@ export default function RegisterPage() {
           className="form-signin w-50 m-auto my-5 pt-5"
           onSubmit={handleSubmit}
         >
-          <MdGavel />
-          <h1 className="h3 mb-3 fw-normal">Register</h1>
+          <div className="d-flex justify-content-center ">
+            <TbGavel className={styles.logoBrand} />
+          </div>
+          <h1 className="d-flex justify-content-center h3 mb-3 fw-normal ">Register</h1>
           <div className="massage-container"></div>
           <div className="form-floating mt-3">
             <input
