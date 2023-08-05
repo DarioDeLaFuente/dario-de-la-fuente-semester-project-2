@@ -24,7 +24,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const placeholderImage =
-    "https://placehold.jp/25/ffff/005eec/250x250.png?text=Placeholder%20IMG%0A%20The%20Market%20of%20Opportunities.";
+    "https://placehold.jp/ffffff/005eec/250x250.png?text=Unsigned%20Market%0APlaceholder";
 
   useEffect(() => {
     async function fetchListings() {
@@ -93,7 +93,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <OffcanvasNav></OffcanvasNav>
-      <Container>
+      <div>
         {errorMessage && <p className="error">{errorMessage}</p>}
         <Form className="d-flex">
           <Form.Control
@@ -105,7 +105,7 @@ const Home = () => {
           />
           <FcSearch className="search" />
         </Form>
-      </Container>
+      </div>
       <Container>
         <Row xs={1}>
           <Col>
@@ -115,30 +115,9 @@ const Home = () => {
         <Row xs={1} md={3} className="center-mobile">
           {loading ? (
             <>
-              <Row>
-                <Col>
-                  {/*<GrowLoading />*/}
-                  <CardPlaceholder />
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  {/*<GrowLoading />*/}
-                  <CardPlaceholder />
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  {/*<GrowLoading />*/}
-                  <CardPlaceholder />
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  {/*<GrowLoading />*/}
-                  <CardPlaceholder />
-                </Col>
-              </Row>
+              {[...Array(10)].map((x, i) => (
+                <CardPlaceholder key={i} />
+              ))}
             </>
           ) : (
             <>

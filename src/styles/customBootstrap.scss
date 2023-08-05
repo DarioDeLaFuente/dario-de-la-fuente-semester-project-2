@@ -1,5 +1,9 @@
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
 
+.container {
+  min-height: calc(100vh - 70px);
+}
+
 .text {
   font-size: 0.8rem;
   text-align: left;

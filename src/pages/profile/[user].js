@@ -12,6 +12,8 @@ import UpdateAvatar from "../components/_updateAvatar";
 import Footer from "../components/_footer";
 import styles from "../../styles/profileCard.module.css";
 import Button from "react-bootstrap/Button";
+import Placeholder from "react-bootstrap/Placeholder";
+import CardPlaceholder from "../components/_card-placeholder";
 
 function ProfilePage() {
   const router = useRouter();
@@ -100,11 +102,22 @@ function ProfilePage() {
                 />
               </div>
               <div className={styles.textContainer}>
-                <p className={styles.name}>Hei {profile.name}</p>
+                <p className={styles.name}>
+                  Hei
+                  {!profile.name && <Placeholder xs={4} />} {profile.name}
+                </p>
                 <div className={styles.profile}>
-                  <p>Email: {profile.email}</p>
-                  <p>Credits: {profile.credits}</p>
-                  <Card.Subtitle>Auction:{profile._count.listings}</Card.Subtitle>
+                  <p>
+                    Email: {!profile.email && <Placeholder xs={4} />} {profile.email}
+                  </p>
+                  <p>
+                    Credits: {!profile.credits && <Placeholder xs={4} />}
+                    {profile.credits}
+                  </p>
+                  <Card.Subtitle>
+                    Auction:
+                    {profile._count.listings}
+                  </Card.Subtitle>
                 </div>
               </div>
             </div>
@@ -113,15 +126,15 @@ function ProfilePage() {
             <h4 className="mt-3">Create a Listing</h4>
             <CreateEntry onEntryCreated={handleEntryCreated} />
           </div>
-          <div className="col-md-6 order-md-4 ">
-            <h4 className="d-flex justify-content-between align-items-center ">Your entry list:</h4>
-            <EntryList user={user} entryList={entryList} />
+          <div className="col-md-6 order-md-4">
+            <h4 className=" justify-content-between align-items-center">Your entry list:</h4>
+            <div className="d-flex justify-content-center m-5">
+              <EntryList user={user} entryList={entryList} />
+            </div>
           </div>
           <div className="col-md-6 order-md-5 ">
             <div>
-              <h4 className="d-flex justify-content-between align-items-center ">
-                Your entry vins:
-              </h4>
+              <h4 className="justify-content-between align-items-center ">Your entry vins:</h4>
               {Array.isArray(profile.wins) &&
                 profile.wins.map((win) => (
                   <div key={win}>

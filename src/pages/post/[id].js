@@ -25,9 +25,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import error from "../../styles/error.module.css";
 import success from "../../styles/success.module.css";
 import bidButton from "../../styles/bidButton.module.css";
+import Placeholder from "react-bootstrap/Placeholder";
 
 const placeholderImage =
-  "https://placehold.jp/25/ffff/005eec/250x250.png?text=Placeholder%20IMG%0A%20The%20Market%20of%20Opportunities.";
+  "https://placehold.jp/ffffff/005eec/250x250.png?text=Unsigned%20Market%0APlaceholder";
 
 const Post = () => {
   const router = useRouter();
@@ -166,27 +167,76 @@ const Post = () => {
                 </div>
               </Col>
               <Col xs={12} md={4}>
-                <h2 className={des.titleDescription}>{post.title}</h2>
+                <h2 className={des.titleDescription}>
+                  {!post.title && <Placeholder xs={4} />} {post.title}
+                </h2>
                 <span className={des.description}>
                   Description:
-                  <p className={des.txtDescription}>{post.description}</p>
+                  <p className={des.txtDescription}>
+                    {!post.description && (
+                      <>
+                        <Placeholder xs={6} size="lg" /> <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {post.description}
+                  </p>
                 </span>
                 <span className={des.description}>
                   Id:
-                  <p className={des.txtDescription}>{post.id}</p>
+                  <p className={des.txtDescription}>
+                    {!post.id && (
+                      <>
+                        <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {post.id}
+                  </p>
                 </span>
                 <span className={des.description}>
                   Bid amount:
-                  <p className={des.txtDescription}>{post._count && post._count.bids}</p>
+                  <p className={des.txtDescription}>
+                    {!post._count && (
+                      <>
+                        <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {post._count && post._count.bids}
+                  </p>
                 </span>
                 <span className={des.description}>
                   Last updated:
-                  <p className={des.txtDescription}>{formatDate(post.updated)}</p>
+                  <p className={des.txtDescription}>
+                    {!post.updated && (
+                      <>
+                        <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {formatDate(post.updated)}
+                  </p>
                 </span>
                 <div className={des.desBox}>
                   Listing info:
-                  <p className={des.txtBoxDescription}>created: {formatDate(post.created)}</p>
-                  <p className={des.txtBoxDescription}>ends At: {formatDate(post.endsAt)}</p>
+                  <p className={des.txtBoxDescription}>
+                    {!post.created && (
+                      <>
+                        created: <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {formatDate(post.created)}
+                  </p>
+                  <p className={des.txtBoxDescription}>
+                    {!post.endsAt && (
+                      <>
+                        ends At: <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {formatDate(post.endsAt)}
+                  </p>
                 </div>
                 {post && (
                   <>

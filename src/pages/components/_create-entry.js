@@ -5,6 +5,14 @@ import { getToken } from "../../utils/storage";
 import style from "../../styles/formCard.module.css";
 import error from "../../styles/errorMessage.module.css";
 
+//const formatDate = (dateString) => {
+//  const timestamp = Date.parse(dateString);
+//  if (isNaN(timestamp)) return "Invalid Date";
+
+//  const date = new Date(timestamp);
+//  return date.toLocaleString();
+//};
+
 function GenerateEntry({ onEntryCreated }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -122,7 +130,15 @@ function GenerateEntry({ onEntryCreated }) {
       setEndsError("Ends At is required.");
       isValid = false;
     } else {
-      setEndsError(null);
+      //setEndsError(null);
+      const endsTimestamp = Date.parse(ends);
+      const currentTimestamp = Date.now();
+      if (endsTimestamp <= currentTimestamp) {
+        setEndsError("Ends At must be a future date.");
+        isValid = false;
+      } else {
+        setEndsError(null);
+      }
     }
 
     return isValid;
@@ -173,9 +189,11 @@ function GenerateEntry({ onEntryCreated }) {
         <Form.Group className="mb-3">
           <Form.Label>Ends At</Form.Label>
           <Form.Control
-            type="text"
+            //type="text"
+            //value={formatDate(ends.slice(0, 16))}
+            type="datetime-local"
+            value={ends.slice(0, 16)}
             placeholder="Ends"
-            value={ends}
             onChange={(e) => setEnds(e.target.value)}
           />
           {endsError && <p className={error.errorMessage}>{endsError}</p>}

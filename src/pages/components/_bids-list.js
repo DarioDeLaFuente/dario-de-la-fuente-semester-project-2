@@ -2,6 +2,13 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import bidBox from "../../styles/bidConteiner.module.css";
 
+const formatDate = (dateString) => {
+  const timestamp = Date.parse(dateString);
+  if (isNaN(timestamp)) return "Invalid Date";
+  const date = new Date(timestamp);
+  return date.toLocaleString();
+};
+
 function listOfBids({ bids }) {
   console.log("post.bids", bids);
   console.log("post.array", Array.isArray(bids));
@@ -15,7 +22,7 @@ function listOfBids({ bids }) {
               User:{bid.bidderName}
             </div>
             <Badge className="m-3 " bg="primary" pill>
-              {bid.created}
+              {formatDate(bid.created)}
             </Badge>
           </ListGroup.Item>
         ))}
