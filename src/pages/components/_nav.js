@@ -7,6 +7,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { TbGavel } from "react-icons/tb";
 import { FaUserCircle } from "react-icons/fa";
 import { FcHome } from "react-icons/fc";
+import { FcAbout } from "react-icons/fc";
 import { clearStorage, saveUser } from "../../utils/storage";
 import { getFromStorage } from "../../utils/storage";
 import Card from "react-bootstrap/Card";
@@ -83,25 +84,22 @@ const OffcanvasNav = ({ userCredits }) => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  UnsignedMarket <TbGavel className={styles.logoBrand} />
-                  <Navbar.Text className={styles.brandSlogen}>
-                    The Market of Opportunities.
-                  </Navbar.Text>
+                  <Nav.Link href="/">
+                    UnsignedMarket <TbGavel className={styles.logoBrand} />
+                    <Navbar.Text className={styles.brandSlogen}>
+                      The Market of Opportunities.
+                    </Navbar.Text>
+                  </Nav.Link>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">
-                    <FcHome /> Home
-                  </Nav.Link>
                   {name ? (
                     <>
                       <Nav.Link href={`/profile/${name}`}>
                         <FaUserCircle /> Profile
                       </Nav.Link>
-                      <Nav.Link href="/" onClick={handleLogout}>
-                        Log out
-                      </Nav.Link>
+
                       <Card>
                         <Card.Body>
                           <Card.Title>{name}</Card.Title>
@@ -109,9 +107,15 @@ const OffcanvasNav = ({ userCredits }) => {
                           <Card.Text>Credits: {credits}</Card.Text>
                         </Card.Body>
                       </Card>
+                      <Nav.Link href="/" onClick={handleLogout}>
+                        Log out
+                      </Nav.Link>
                     </>
                   ) : (
                     <>
+                      <Nav.Link href="/infoPage">
+                        <FcAbout /> Your Ultimate Guide
+                      </Nav.Link>
                       <Nav.Link href="/LoginPage">Log in</Nav.Link>
                       <Nav.Link href="/RegisterPage">Register</Nav.Link>
                     </>

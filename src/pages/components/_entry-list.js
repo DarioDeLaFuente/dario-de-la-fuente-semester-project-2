@@ -4,6 +4,15 @@ import Carousel from "react-bootstrap/Carousel";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GrowLoading from "../components/_border-grow";
+import Card from "react-bootstrap/Card";
+
+const formatDate = (dateString) => {
+  const timestamp = Date.parse(dateString);
+  if (isNaN(timestamp)) return "Invalid Date";
+
+  const date = new Date(timestamp);
+  return date.toLocaleString();
+};
 
 function entryListHandler({ user, entryList }) {
   const [entryListHandler, setentryListHandler] = useState([]);
@@ -56,28 +65,31 @@ function entryListHandler({ user, entryList }) {
   }
 
   return (
-    <Carousel className={styles.carouselContainer}>
+    <Row xs={1} md={1} xl={2} className="g-4">
       {entryListHandler.map((entry, index) => (
-        <Carousel.Item key={index}>
-          <img
-            className="d-block w-100"
-            src={`${entry.media ? entry.media : placeholderImage}`}
-            alt="First slide"
-          />
-          <Carousel.Caption key={entry.id}>
-            <h3>{entry.title}</h3>
-            <p>{entry.description}</p>
-            <p>{entry.tags}</p>
-            <p>{entry._count.bids}</p>
-            <p>{entry.endsAt}</p>
-            <span>
-              {" "}
-              <button onClick={() => deleteEntry(entry.id)}>Delete</button>
-            </span>
-          </Carousel.Caption>
-        </Carousel.Item>
+        <Col key={index}>
+          <Card className="card-conteiner-button">
+            <img
+              className="d-block w-100"
+              src={`${entry.media ? entry.media : placeholderImage}`}
+              alt="First slide"
+            />
+            <Card.Body>
+              <Card.Title>{entry.title}</Card.Title>
+              <Card.Text>{entry.tags}</Card.Text>
+              <Card.Text>{formatDate(entry.endsAt)}</Card.Text>
+              <Card.Text>{entry._count.bids}</Card.Text>
+              <span>
+                {" "}
+                <button className="card-button" onClick={() => deleteEntry(entry.id)}>
+                  Delete
+                </button>
+              </span>
+            </Card.Body>
+          </Card>
+        </Col>
       ))}
-    </Carousel>
+    </Row>
   );
 }
 

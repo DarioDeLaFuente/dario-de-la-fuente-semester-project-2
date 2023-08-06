@@ -28,7 +28,7 @@ import bidButton from "../../styles/bidButton.module.css";
 import Placeholder from "react-bootstrap/Placeholder";
 
 const placeholderImage =
-  "https://placehold.jp/ffffff/005eec/250x250.png?text=Unsigned%20Market%0APlaceholder";
+  "https://raw.githubusercontent.com/DarioDeLaFuente/dario-de-la-fuente-semester-project-2/main/public/placeholderSP2.png";
 
 const Post = () => {
   const router = useRouter();
@@ -205,6 +205,29 @@ const Post = () => {
                     {post._count && post._count.bids}
                   </p>
                 </span>
+                <div className={des.desBox}>
+                  Listing info:
+                  <p className={des.txtBoxDescription}>
+                    <span>Created: </span>
+                    {!post.created && (
+                      <>
+                        <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {formatDate(post.created)}
+                  </p>
+                  <p className={des.txtBoxDescription}>
+                    <span>Ends At: </span>
+                    {!post.endsAt && (
+                      <>
+                        <Placeholder xs={6} size="lg" />
+                        <Placeholder xs={6} size="lg" />
+                      </>
+                    )}
+                    {formatDate(post.endsAt)}
+                  </p>
+                </div>
                 <span className={des.description}>
                   Last updated:
                   <p className={des.txtDescription}>
@@ -217,27 +240,6 @@ const Post = () => {
                     {formatDate(post.updated)}
                   </p>
                 </span>
-                <div className={des.desBox}>
-                  Listing info:
-                  <p className={des.txtBoxDescription}>
-                    {!post.created && (
-                      <>
-                        created: <Placeholder xs={6} size="lg" />
-                        <Placeholder xs={6} size="lg" />
-                      </>
-                    )}
-                    {formatDate(post.created)}
-                  </p>
-                  <p className={des.txtBoxDescription}>
-                    {!post.endsAt && (
-                      <>
-                        ends At: <Placeholder xs={6} size="lg" />
-                        <Placeholder xs={6} size="lg" />
-                      </>
-                    )}
-                    {formatDate(post.endsAt)}
-                  </p>
-                </div>
                 {post && (
                   <>
                     {loggedIn ? (

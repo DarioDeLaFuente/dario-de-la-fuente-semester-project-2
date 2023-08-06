@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,300;0,500;1,100;1,200&display=swap');
+
+
+body{
+    font-family: 'Barlow', sans-serif;
+}
+
+.container {
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  .title {
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .nav-link  {
+    font-family: 'Barlow', sans-serif;
+  }

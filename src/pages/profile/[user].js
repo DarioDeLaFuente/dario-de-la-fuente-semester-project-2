@@ -126,13 +126,13 @@ function ProfilePage() {
             <h4 className="mt-3">Create a Listing</h4>
             <CreateEntry onEntryCreated={handleEntryCreated} />
           </div>
-          <div className="col-md-6 order-md-4">
+          <div className="col-md-6 order-md-4 mt-3">
             <h4 className=" justify-content-between align-items-center">Your entry list:</h4>
             <div className="d-flex justify-content-center m-5">
               <EntryList user={user} entryList={entryList} />
             </div>
           </div>
-          <div className="col-md-6 order-md-5 ">
+          <div className="col-md-6 order-md-5 mt-3">
             <div>
               <h4 className="justify-content-between align-items-center ">Your entry vins:</h4>
               {Array.isArray(profile.wins) &&

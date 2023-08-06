@@ -24,7 +24,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const placeholderImage =
-    "https://placehold.jp/ffffff/005eec/250x250.png?text=Unsigned%20Market%0APlaceholder";
+    "https://raw.githubusercontent.com/DarioDeLaFuente/dario-de-la-fuente-semester-project-2/main/public/placeholderSP2.png";
 
   useEffect(() => {
     async function fetchListings() {
@@ -93,7 +93,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <OffcanvasNav></OffcanvasNav>
-      <div>
+      <div class="container-sm">
         {errorMessage && <p className="error">{errorMessage}</p>}
         <Form className="d-flex">
           <Form.Control
