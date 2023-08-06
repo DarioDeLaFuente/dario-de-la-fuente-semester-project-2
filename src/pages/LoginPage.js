@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Footer from "./components/_footer";
 import { TbGavel } from "react-icons/tb";
 import styles from "../styles/LogoBaner.module.css";
+import error from "../styles/errorMessage.module.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -90,7 +91,7 @@ export default function LoginPage() {
               />
             </label>
           </div>
-          {emailErrorMessage && <p className="error">{emailErrorMessage}</p>}
+          {emailErrorMessage && <p className={error.errorMessage}>{emailErrorMessage}</p>}
           <div className="row mt-3">
             <label>
               Password:
@@ -103,7 +104,7 @@ export default function LoginPage() {
             </label>
           </div>
           <div className="Form-error">
-            {errorMessage && <p className="error">{errorMessage}</p>}
+            {errorMessage && <p className={error.errorMessage}>{errorMessage}</p>}
           </div>
           <button className="w-100 btn btn-primary mt-3" type="submit">
             Login

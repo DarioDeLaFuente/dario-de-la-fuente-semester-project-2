@@ -11,11 +11,9 @@ import styles from "../styles/CardBody.module.css";
 import Form from "react-bootstrap/Form";
 import { FcSearch } from "react-icons/fc";
 import Footer from "./components/_footer";
-import GrowLoading from "./components/_border-grow";
 import CardPlaceholder from "./components/_card-placeholder";
 
 const Home = () => {
-  const [listings, setListings] = useState([]);
   const [error, setError] = useState(null);
   const [filteredListings, setFilteredListings] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -45,7 +43,7 @@ const Home = () => {
         }
         const data = await res.json();
         console.log("data-index", data);
-        setListings(data);
+
         setFilteredListings(data);
         setLoading(false);
       } catch (error) {

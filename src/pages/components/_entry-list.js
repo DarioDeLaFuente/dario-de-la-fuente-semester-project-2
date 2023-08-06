@@ -65,7 +65,7 @@ function entryListHandler({ user, entryList }) {
   }
 
   return (
-    <Row xs={1} md={1} xl={2} className="g-4">
+    <Row xs={1} md={2} xl={3} className="g-4">
       {entryListHandler.map((entry, index) => (
         <Col key={index}>
           <Card className="card-conteiner-button">

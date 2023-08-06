@@ -8,6 +8,7 @@ import OffcanvasNav from "./components/_nav";
 import Footer from "./components/_footer";
 import { TbGavel } from "react-icons/tb";
 import styles from "../styles/LogoBaner.module.css";
+import error from "../styles/errorMessage.module.css";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -115,7 +116,7 @@ export default function RegisterPage() {
               }}
             />
             <label htmlFor="name">Name</label>
-            {nameErrorMessage && <p className="error">{nameErrorMessage}</p>}
+            {nameErrorMessage && <p className={error.errorMessage}>{nameErrorMessage}</p>}
           </div>
           <div className="form-floating mt-3">
             <input
@@ -131,7 +132,7 @@ export default function RegisterPage() {
               }}
             />
             <label htmlFor="email">Email address</label>
-            {emailErrorMessage && <p className="error">{emailErrorMessage}</p>}
+            {emailErrorMessage && <p className={error.errorMessage}>{emailErrorMessage}</p>}
           </div>
           <div className="form-floating mt-3">
             <input
@@ -149,10 +150,10 @@ export default function RegisterPage() {
             <label htmlFor="password">Password</label>
           </div>
           <div className="Form-error">
-            {passwordErrorMessage && <p className="error">{passwordErrorMessage}</p>}
+            {passwordErrorMessage && <p className={error.errorMessage}>{passwordErrorMessage}</p>}
           </div>
           <div className="Form-error">
-            {errorMessage && <p className="error">{errorMessage}</p>}
+            {errorMessage && <p className={error.errorMessage}>{errorMessage}</p>}
           </div>
           <button type="submit" className="w-100 btn btn-primary mt-3">
             Submit
