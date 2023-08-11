@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GrowLoading from "../components/_border-grow";
 import Card from "react-bootstrap/Card";
+import { Container } from "react-bootstrap";
 
 const formatDate = (dateString) => {
   const timestamp = Date.parse(dateString);
@@ -65,31 +66,33 @@ function entryListHandler({ user, entryList }) {
   }
 
   return (
-    <Row xs={1} md={2} xl={3} className="g-4">
-      {entryListHandler.map((entry, index) => (
-        <Col key={index}>
-          <Card className="card-conteiner-button">
-            <img
-              className="d-block w-100"
-              src={`${entry.media ? entry.media : placeholderImage}`}
-              alt="First slide"
-            />
-            <Card.Body>
-              <Card.Title>{entry.title}</Card.Title>
-              <Card.Text>{entry.tags}</Card.Text>
-              <Card.Text>{formatDate(entry.endsAt)}</Card.Text>
-              <Card.Text>{entry._count.bids}</Card.Text>
-              <span>
-                {" "}
-                <button className="card-button" onClick={() => deleteEntry(entry.id)}>
-                  Delete
-                </button>
-              </span>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <Container>
+      <Row xs={1} md={2} xl={3} className="g-4">
+        {entryListHandler.map((entry, index) => (
+          <Col key={index}>
+            <Card className="card-conteiner-button">
+              <img
+                className="d-block entry-card-img"
+                src={`${entry.media ? entry.media : placeholderImage}`}
+                alt="card conteiner imge"
+              />
+              <Card.Body className="entry-card-box">
+                <Card.Title>{entry.title}</Card.Title>
+                <Card.Text>Tag:{entry.tags}</Card.Text>
+                <Card.Text>Ends: {formatDate(entry.endsAt)}</Card.Text>
+                <Card.Text>Bids: {entry._count.bids}</Card.Text>
+                <span>
+                  {" "}
+                  <button className="card-button" onClick={() => deleteEntry(entry.id)}>
+                    Delete
+                  </button>
+                </span>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

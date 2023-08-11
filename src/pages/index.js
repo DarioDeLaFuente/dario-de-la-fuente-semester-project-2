@@ -74,7 +74,7 @@ const Home = () => {
     }));
   };
   if (error) {
-    //   return <div>An error occurred: {error.message}</div>;
+    return <p className="error">{errorMessage}</p>;
   }
 
   const handleImageError = (event) => {

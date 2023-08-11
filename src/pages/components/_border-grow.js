@@ -5,8 +5,8 @@ function GrowLoading() {
   //return <Spinner animation="grow" />;
   return (
     <>
-      <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
-      Make a entery
+      <Spinner as="span" animation="grow" size="xl" role="status" aria-hidden="true" />
+      <p>Make a entery</p>
     </>
   );
 }
