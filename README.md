@@ -1,7 +1,7 @@
 
 # Auction website the Semester Project 2
 
-![image](https://celebrated-gelato-8766b8.netlify.app/)
+![image](https://raw.githubusercontent.com/DarioDeLaFuente/dario-de-la-fuente-semester-project-2/main/public/placeholderSP2.png)
 
 This is a simple overview of the use/purpose of the project.
 
