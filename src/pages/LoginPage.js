@@ -4,7 +4,6 @@ import { saveToken, saveUser } from "../utils/storage";
 import { baseUrl } from "./api/url";
 import OffcanvasNav from "./components/_nav";
 import Container from "react-bootstrap/Container";
-import Footer from "./components/_footer";
 import { TbGavel } from "react-icons/tb";
 import styles from "../styles/LogoBaner.module.css";
 import error from "../styles/errorMessage.module.css";
@@ -46,10 +45,7 @@ export default function LoginPage() {
     };
     try {
       const response = await fetch(url, options);
-      console.log("RESP1", response);
       const json = await response.json();
-      console.log("JASON2", json);
-
       if (json.accessToken) {
         console.log("accessToken:", json.accessToken);
         saveToken(json.accessToken);
@@ -64,7 +60,6 @@ export default function LoginPage() {
         setErrorMessage(errorMessage);
       }
     } catch (error) {
-      console.log("catch:", error);
       setErrorMessage(`POST ${url}  ${error}`);
     }
   };

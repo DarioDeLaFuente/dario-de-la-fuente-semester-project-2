@@ -13,7 +13,6 @@ const SuccessfullyRegisteredPage = () => {
             <h1>Registration Successful!</h1>
           </Col>
           <Row className="justify-content-md-center">
-            2AC171
             <Col xs lg="6">
               <p>Thank you for registering. Your account has been successfully created.</p>
               <p>You can now log in and start using our services.</p>

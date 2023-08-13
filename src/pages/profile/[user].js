@@ -43,7 +43,6 @@ function ProfilePage() {
     const res = await fetch(`https://api.noroff.dev/api/v1/auction/profiles/${name}`, options);
     const data = await res.json();
     setProfile(data);
-    console.log("Set proile", data);
     setAvatarData(data.avatar);
   };
   useEffect(() => {
@@ -51,13 +50,10 @@ function ProfilePage() {
   }, [profile]);
   const handleEntryCreated = (newEntry) => {
     setEntryList([...entryList, newEntry]);
-    console.log("entryList", entryList);
-    console.log("newentry", newEntry);
     fetchProfile();
   };
   const handleAvatarUpdated = (newAvatarData) => {
     setAvatarData(newAvatarData);
-    console.log("data", newAvatarData);
   };
   if (!profile || !user) {
     return;

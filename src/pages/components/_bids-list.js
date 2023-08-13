@@ -10,8 +10,6 @@ const formatDate = (dateString) => {
 };
 
 function listOfBids({ bids }) {
-  console.log("post.bids", bids);
-  console.log("post.array", Array.isArray(bids));
   return (
     <ListGroup as="ol">
       {Array.isArray(bids) &&

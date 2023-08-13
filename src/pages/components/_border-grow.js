@@ -1,12 +1,23 @@
 import Spinner from "react-bootstrap/Spinner";
-//import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function GrowLoading() {
-  //return <Spinner animation="grow" />;
   return (
     <>
-      <Spinner as="span" animation="grow" size="xl" role="status" aria-hidden="true" />
-      <p>Make a entery</p>
+      <Container>
+        <Row>
+          <Col>
+            <Spinner as="span" animation="grow" size="xl" role="status" aria-hidden="true" />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <span>Make a entery</span>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

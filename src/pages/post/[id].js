@@ -37,7 +37,6 @@ const Post = () => {
   const [post, setPost] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
-  console.log(" 1router", router);
 
   const formatDate = (dateString) => {
     const timestamp = Date.parse(dateString);
@@ -59,7 +58,6 @@ const Post = () => {
       options
     );
     const data = await res.json();
-    console.log("data", data);
     saveUser(data);
   };
 
@@ -70,14 +68,12 @@ const Post = () => {
         throw new Error("Failed to fetch post podcasts");
       }
       const data = await res.json();
-      console.log("data-post", data);
       setPost(data);
     } catch (error) {
-      // setError(error);
+      setError(error);
     }
   }
   useEffect(() => {
-    console.log("id", id);
     if (id) {
       fetchPost();
       setLoggedIn(isLoggedIn());
@@ -110,11 +106,8 @@ const Post = () => {
         body: JSON.stringify({ amount: bidAmount }),
       });
       const json = await res.json();
-      console.log("BidAmount", bidAmount);
-      console.log("json", json);
 
       if (json.id) {
-        console.log("Success: Bid is accepted");
         setBidError("Thank you for your bid.");
         fetchProfile();
         setErrorMessage("");
@@ -130,9 +123,7 @@ const Post = () => {
       if (user) {
         user.credits = user.credits - bidAmount;
         saveToStorage(userKey, user);
-        console.log("User", user);
       }
-      console.log("User", user);
     } catch (error) {
       setBidError(`Error: ${error.message}`);
     }
@@ -148,7 +139,6 @@ const Post = () => {
     event.target.src = placeholderImage;
   };
 
-  console.log("img", post);
   return (
     <>
       <OffcanvasNav userCredits={post.credits} />

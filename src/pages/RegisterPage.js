@@ -1,11 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { saveUser } from "../utils/storage";
-import displayMessage from "../pages/components/_displayMessage";
-import { MdGavel } from "react-icons/md";
 import OffcanvasNav from "./components/_nav";
-import Footer from "./components/_footer";
 import { TbGavel } from "react-icons/tb";
 import styles from "../styles/LogoBaner.module.css";
 import error from "../styles/errorMessage.module.css";
@@ -65,19 +61,16 @@ export default function RegisterPage() {
 
       if (response.ok) {
         const json = await response.json();
-        console.log("JASON user", json);
         router.push(`/SuccessfullyRegisteredPage`);
-        console.log("JASON user", json);
       } else {
         const json = await response.json();
-        console.log("json.errors:", json.errors);
         const errorMessage = json.errors[0].message;
         setStatusCode(json.statusCode);
         setStatus(json.status);
         setErrorMessage(errorMessage);
       }
     } catch (errors) {
-      console.log("fetch error:", errors);
+      //console.log("fetch error:", errors);
     }
   };
   return (

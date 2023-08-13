@@ -5,14 +5,6 @@ import { getToken } from "../../utils/storage";
 import style from "../../styles/formCard.module.css";
 import error from "../../styles/errorMessage.module.css";
 
-//const formatDate = (dateString) => {
-//  const timestamp = Date.parse(dateString);
-//  if (isNaN(timestamp)) return "Invalid Date";
-
-//  const date = new Date(timestamp);
-//  return date.toLocaleString();
-//};
-
 function GenerateEntry({ onEntryCreated }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -27,9 +19,7 @@ function GenerateEntry({ onEntryCreated }) {
   const [mediaError, setMediaError] = useState(null);
   const [endsError, setEndsError] = useState(null);
 
-  useEffect(() => {
-    console.log("Entry List:", entryList);
-  }, [entryList]);
+  useEffect(() => {}, [entryList]);
 
   const handleEntrySubmit = async (event) => {
     event.preventDefault();
@@ -58,20 +48,16 @@ function GenerateEntry({ onEntryCreated }) {
         },
         body: JSON.stringify(data),
       });
-      console.log("response", response);
 
       if (response.ok) {
         const json = await response.json();
-        console.log("JASON createt entry", json);
         onEntryCreated(json);
       } else {
         const errorResponse = await response.json();
         const errorMessage = errorResponse.message || "Failed to create entry";
         setFormError(errorMessage);
-        console.log("Error creating entry:", errorMessage);
       }
     } catch (error) {
-      console.error("Error creating entry:", error);
       setFormError("An error occurred while creating the entry.");
     }
     setTitle("");
@@ -130,7 +116,6 @@ function GenerateEntry({ onEntryCreated }) {
       setEndsError("Ends At is required.");
       isValid = false;
     } else {
-      //setEndsError(null);
       const endsTimestamp = Date.parse(ends);
       const currentTimestamp = Date.now();
       if (endsTimestamp <= currentTimestamp) {
@@ -189,8 +174,6 @@ function GenerateEntry({ onEntryCreated }) {
         <Form.Group className="mb-3">
           <Form.Label>Ends At</Form.Label>
           <Form.Control
-            //type="text"
-            //value={formatDate(ends.slice(0, 16))}
             type="datetime-local"
             value={ends.slice(0, 16)}
             placeholder="Ends"

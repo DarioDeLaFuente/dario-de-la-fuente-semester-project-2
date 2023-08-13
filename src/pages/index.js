@@ -42,8 +42,6 @@ const Home = () => {
           throw new Error("Failed to fetch podcasts");
         }
         const data = await res.json();
-        console.log("data-index", data);
-
         setFilteredListings(data);
         setLoading(false);
       } catch (error) {

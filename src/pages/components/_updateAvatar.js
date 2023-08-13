@@ -40,7 +40,6 @@ const UpdateAvatar = ({ onAvatarUpdated }) => {
         setSuccessMessage("Avatar updated successfully!");
         onAvatarUpdated(link);
       } else {
-        console.log("Error", res);
         const errorData = await res.json();
         const errorMessage = errorData.error || "Failed to update avatar. Please try again.";
         setSuccessMessage(`Failed to update avatar. Error: ${errorMessage}`);
@@ -48,7 +47,6 @@ const UpdateAvatar = ({ onAvatarUpdated }) => {
     } catch (error) {
       const errorMessage = "An error occurred while updating avatar. Please try again.";
       setSuccessMessage(errorMessage);
-      console.log("Error", error);
     }
   };
 

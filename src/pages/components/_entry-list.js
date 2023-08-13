@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/scrollBarThumb.module.css";
-import Carousel from "react-bootstrap/Carousel";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GrowLoading from "../components/_border-grow";
@@ -34,7 +32,7 @@ function entryListHandler({ user, entryList }) {
         const data = await res.json();
         setentryListHandler(data);
       } catch (error) {
-        console.error("Error fetching listings:", error);
+        //console.error("Error fetching listings:", error);
       }
     }
     fetchListingData();
@@ -51,7 +49,7 @@ function entryListHandler({ user, entryList }) {
       await fetch(`https://api.noroff.dev/api/v1/auction/listings/${id}`, options);
       setentryListHandler((prevList) => prevList.filter((entry) => entry.id !== id));
     } catch (error) {
-      console.error("Error deleting entry:", error);
+      //console.error("Error deleting entry:", error);
     }
   };
 
