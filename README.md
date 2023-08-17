@@ -53,8 +53,12 @@ To run the porodject, run the following commands:
 
 ## Getting Started
 
-First, run the development server:
+First, Install the dependencies: 
+```
+npm install
+```
 
+2. Run the development server:
 ```bash
 npm run dev
 # or
@@ -62,19 +66,21 @@ yarn dev
 # or
 pnpm dev
 ```
-2. Install the dependencies:
-
-```
-npm install
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Special instructions for testers:
+Are you ready to embark on an exhilarating journey into the world of online auctions? Look no further than Unsigned Market – your ultimate destination for thrilling bidding wars and uncovering hidden treasures. In this comprehensive guide, we'll walk you through everything you need to know to make the most out of your experience on our dynamic platform
+
+This is [Your Ultimate Guide](https://celebrated-gelato-8766b8.netlify.app/infopage)
+
 
 ## Link to the site: 
+This is [Unsigned Market](https://celebrated-gelato-8766b8.netlify.app/)
 ## Contact
 
-[My LinkedIn page]()
+[My LinkedIn page](https://www.linkedin.com/in/dario-de-la-fuente-b0324118a/)
 
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

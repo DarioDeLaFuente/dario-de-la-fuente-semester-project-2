@@ -69,7 +69,6 @@ const Post = () => {
         throw new Error("Failed to fetch post data");
       }
       const data = await res.json();
-      console.log("data-post", data);
       setPost(data);
     } catch (error) {
       setError(error);

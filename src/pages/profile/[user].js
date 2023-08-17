@@ -95,7 +95,6 @@ function ProfilePage() {
                     className={styles.profileImage}
                     src={avatarData}
                     onError={() => setAvatarData(null)}
-                    //alt="Avatar"
                     alt={`${
                       "A avatar image of the user " + (profile.name ? profile.name : "User")
                     }`}
