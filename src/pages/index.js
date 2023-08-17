@@ -39,9 +39,10 @@ const Home = () => {
           }&${queryParams.toString()}`
         );
         if (!res.ok) {
-          throw new Error("Failed to fetch podcasts");
+          throw new Error("Failed to fetch data");
         }
         const data = await res.json();
+        console.log("data-index", data);
         setFilteredListings(data);
         setLoading(false);
       } catch (error) {
@@ -89,7 +90,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <OffcanvasNav></OffcanvasNav>
-      <div class="container-sm">
+      <div className="container-sm">
         {errorMessage && <p className="error">{errorMessage}</p>}
         <Form className="d-flex">
           <Form.Control

@@ -24,6 +24,7 @@
     height: 170px;
     border-radius: 50%;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.329);
+    object-fit: cover; 
   }
  
   .textContainer {

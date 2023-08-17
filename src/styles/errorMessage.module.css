@@ -1,5 +1,22 @@
 .errorMessage{
     color: red;
     font-size: 12px;
-    position: absolute;
+  }
+
+  
+  
+  @media (min-width: 768px) {
+    .errorMessage{
+      color: red;
+      font-size: 12px;
+      position: absolute;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .errorMessage{
+      color: red;
+      font-size: 12px;
+      position: absolute;
+    }
   }
