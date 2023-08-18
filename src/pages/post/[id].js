@@ -18,6 +18,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import BidsList from "../components/_bids-list";
 import Footer from "../components/_footer";
+import styles from "../../styles/InputBid.module.css";
 import img from "../../styles/PostCardImg.module.css";
 import des from "../../styles/cardDescription.module.css";
 import Form from "react-bootstrap/Form";
