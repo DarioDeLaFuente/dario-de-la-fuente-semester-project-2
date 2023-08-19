@@ -248,12 +248,12 @@ const Post = () => {
                         <Form className="mt-3" onSubmit={handleBid}>
                           {errorMessage && <div className={error.errorMessage}>{errorMessage}</div>}
                           {bidError && <div className={success.success}>{bidError}</div>}
-                          <InputGroup className={styles.inputgroup}>
+                          <InputGroup className={img.inputgroup}>
                             <Form.Control
                               type="number"
                               value={bidAmount}
                               onChange={(e) => setBidAmount(Number(e.target.value))}
-                              className={styles.input}
+                              className={img.input}
                               placeholder="Bid Amount"
                             />
                             <Button className={bidButton.bidButton} variant="" type="submit">
